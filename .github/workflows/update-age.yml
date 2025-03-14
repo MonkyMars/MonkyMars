@@ -5,12 +5,22 @@ on:
     - cron: '0 0 8 7 *'  # Runs every July 8 at midnight UTC
   workflow_dispatch:  # Allows manual trigger
 
+permissions:
+  contents: write  # Grant write access to push changes
+
 jobs:
   update-age:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Disable default auth to avoid conflicts
+
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Update Age
         run: |
@@ -21,9 +31,9 @@ jobs:
           sed -i "s/\*\*{{AGE}}\*\*/\*\*$AGE\*\*/g" README.md
 
       - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the built-in token
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Update age in README for $CURRENT_YEAR" || exit 0
-          git push
+          git diff --cached --quiet || git commit -m "Update age in README for $CURRENT_YEAR"
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
