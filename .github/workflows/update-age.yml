@@ -26,7 +26,15 @@ jobs:
         run: |
           BIRTH_YEAR=2009
           CURRENT_YEAR=$(date +%Y)
+          CURRENT_MONTH=$(date +%m)
+          CURRENT_DAY=$(date +%d)
+
           AGE=$((CURRENT_YEAR - BIRTH_YEAR))
+
+          # If today is before July 8, subtract 1 from AGE
+          if [ "$CURRENT_MONTH" -lt 7 ] || { [ "$CURRENT_MONTH" -eq 7 ] && [ "$CURRENT_DAY" -lt 8 ]; }; then
+            AGE=$((AGE - 1))
+          fi
 
           sed -i "s/\*\*{{AGE}}\*\*/\*\*$AGE\*\*/g" README.md
 
