@@ -1,5 +1,5 @@
 # About Me:
-Hello World! I'm Levi Noppers, a **15**-year-old software engineer from The Hague, the Netherlands, with a great passion for developing fullstack apps.<br>I speak both English and Dutch fluently.<br><br>Find my projects, techstack and experience in my [Portfolio](https://levinoppers.nl/)!
+Hello World! I'm Levi Noppers, a 16-year-old software engineer from The Hague, the Netherlands, with a great passion for developing fullstack apps.<br>I speak both English and Dutch fluently.<br><br>Find my projects, techstack and experience in my [Portfolio](https://levinoppers.nl/)!
 <br>
 <br/>
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
