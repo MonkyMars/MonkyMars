@@ -1,5 +1,15 @@
 # About Me:
-Hello World! I'm Levi Noppers, a 16-year-old software engineer from The Netherlands. I develop fullstack apps using Next.js and GO.<br>I speak both English and Dutch fluently.<br><br>Find my projects, techstack and experience in my [Portfolio](https://levinoppers.nl/)!
+```go
+    levi := BackendDeveloper{
+        name:      "Levi Noppers",
+        age:       16,
+        country:   "The Netherlands",
+        portfolio: "https://levinoppers.nl",
+        techstack: []string{"Go", "Typescript"},
+        languages: []string{"Dutch", "English"},
+    }
+```
+
 <br>
 <br/>
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
