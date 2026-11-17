@@ -9,6 +9,6 @@
         Portfolio: "https://levinoppers.nl",
         Techstack: []string{"Go", "Typescript"},
         Languages: []string{"Dutch", "English"},
-        OS:        "Arch Linux",
+        OS:        "NixOS",
     }
 ```
